@@ -1,0 +1,12 @@
+
+> cv@0.0.1 dev
+> astro dev
+
+[vite] connected.
+[2m17:58:59[22m [34m[types][39m Generated [2m1ms[22m
+[33m[1m17:58:59[22m [WARN] [content][39m Content config not loaded
+[42m[1m astro [22m[49m [32mv6.0.4[39m [2mready in[22m 887 [2mms[22m
+[2m┃[22m Local    [36mhttp://localhost:4321/[39m
+[2m┃[22m Network  [2muse --host to expose[22m
+[2m17:58:59[22m [32mwatching for file changes...[39m
+[2m17:59:07[22m [34m[200][39m / [2m18ms[22m
