@@ -15,13 +15,20 @@ type ProfileSection = {
   entries: ProjectEntry[];
 };
 
+type TimelineItem = {
+  year: string;
+  title: string;
+  detail: string;
+};
+
 const profileSections: ProfileSection[] = [
   {
     title: 'Istruzione',
     entries: [
       {
         title: 'Percorso scolastico',
-        description: 'ITI Blaise Pascal Comandini, indirizzo informatico. Diploma attualmente in corso.\nHo acquisito abili capacità in C# utilizzando WPF.',
+        description:
+          'ITI Blaise Pascal Comandini, indirizzo informatico. Diploma attualmente in corso.\nHo consolidato basi di C# e sviluppo desktop con WPF.',
         link: 'https://www.ispascalcomandini.it/',
         linkLabel: 'Blaise Pascal'
       }
@@ -32,13 +39,15 @@ const profileSections: ProfileSection[] = [
     entries: [
       {
         title: 'Sito web CV',
-        description: 'Curriculum online sviluppato con Astro e Tailwind, pensato per presentare un profilo, progetti e contatti.\nTailwind è uno dei framework CSS più in voga insieme ad Astro al momento e ho voluto utilizzarli proprio per questo sito ',
+        description:
+          'Curriculum online sviluppato con Astro e Tailwind, pensato per presentare profilo, progetti e contatti.\nHo scelto questo stack per costruire un layout moderno, veloce e facilmente estendibile.',
         link: 'https://github.com/SleepySmiley/CV',
         linkLabel: 'Project CV'
       },
       {
         title: 'App Conferenze',
-        description: 'Una app funzionale e compatta per la gestione delle logiche di tempo di una riunione, il codice è fatto su wpf con utilizzo di C# e Xaml',
+        description:
+          'Applicazione desktop per la gestione dei tempi di una riunione, sviluppata con C#, WPF e XAML.',
         link: 'https://github.com/SleepySmiley/InTempoFinalProject',
         linkLabel: 'InTime'
       }
@@ -48,11 +57,25 @@ const profileSections: ProfileSection[] = [
     title: 'Produzione musicale',
     entries: [
       {
-        title: 'Hard beat',
-        description: 'Una delle tanti basi musicali che produco, principalmente produco trap ma ho molta dimestichezza con FL Studio e posso produrre un po tutti i generi\nQuesto in particolare è un beat trap jerky',
+        title: 'Hard Jerky beat',
+        description:
+          'Una base musicale prodotta in FL Studio, con focus su sonorita trap e approccio sperimentale.\nQuesto progetto in particolare segue una direzione jerky.',
         audioSrc: '/audio/jerky-beat.wav',
         actionLabel: 'Riproduci beat'
+      },
+      {
+        title: 'Chill Trap beat',
+        description: 'Una base musicale prodotta in FL Studio, con focus su sonorita trap ma con pochi elementi e ordinati.\nQuesto infatti segue un ritmo lento ma incalzante.',
+        audioSrc: '/audio/Chill-Trap.wav',
+        actionLabel: 'Riproduci beat'
+      },
+      {
+        title: 'Rap Hip Hop Beat',
+        description: 'Una base musicale prodotta in FL Studio, con focus su sonorita rap con una varieta di batteria che gira intorno ad una semplice melodia.\nQuesto beat ha la caratteristica di avere un basso molto profondo e pieno',
+        audioSrc: '/audio/Ele-A.wav',
+        actionLabel: 'Riproduci beat'
       }
+
     ]
   },
   {
@@ -60,11 +83,50 @@ const profileSections: ProfileSection[] = [
     entries: [
       {
         title: 'Progetto fotografico',
-        description: 'Sezione pronta per raccogliere shooting, editing, serie fotografiche o lavori personali.',
+        description:
+          'Spazio dedicato a shooting, editing, serie fotografiche e lavori personali costruiti con attenzione a composizione e luce.',
         link: '#',
         linkLabel: 'Aggiungi link'
       }
     ]
+  }
+];
+
+const lifeTimeline: TimelineItem[] = [
+  {
+    year: '2008',
+    title: 'Nato ad Abano Terme',
+    detail: 'Inizio del mio percorso personale e formativo.'
+  },
+  {
+    year: '2021',
+    title: 'Scuole medie concluse',
+    detail: 'Conseguite presso Istituto Aldo Moro.'
+  },
+  {
+    year: '2022',
+    title: 'Inizio produzione musicale',
+    detail: 'Primi passi nella produzione musicale e studio di FL Studio.'
+  },
+  {
+    year: '2023',
+    title: 'Inizio fotografia',
+    detail: 'Prime esperienze con fotografia, composizione e ricerca visiva.'
+  },
+  {
+    year: '2024',
+    title: 'Inizio programmazione attiva',
+    detail: 'Avvio di progetti concreti e pratica costante nello sviluppo software.'
+  },
+  {
+    year: '2026 - Oggi',
+    title: 'Studente al Blaise Pascal Comandini',
+    detail: 'Percorso in ambito informatico attualmente in corso.'
+  },
+  {
+    year: 'Futuro',
+    title: 'In cerca di lavoro',
+    detail: 'Aperto a prime opportunita per crescere e mettermi in gioco.'
   }
 ];
 ---
@@ -73,23 +135,41 @@ const profileSections: ProfileSection[] = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1120" />
     <title>Il mio CV - Christian Mattiolo</title>
   </head>
 
-  <body class="flex min-h-screen items-center justify-center bg-linear-to-br from-amber-400 via-orange-500 to-rose-500 p-4 font-sans antialiased md:p-8">
-    <main class="mx-auto w-full max-w-5xl overflow-hidden rounded-3xl border border-white/30 bg-white/70 shadow-2xl ring-1 ring-white/40 backdrop-blur-xl">
-      <header class="relative bg-linear-to-r from-orange-500/90 to-red-600/90 p-8 text-white md:p-12">
-        <div class="pointer-events-none absolute top-0 right-0 h-40 w-40 rounded-full bg-white/20 blur-3xl"></div>
+  <body class="relative flex min-h-screen items-center justify-center overflow-x-hidden bg-[radial-gradient(circle_at_top,#25344b_0%,#101827_44%,#090d16_100%)] p-4 font-sans antialiased md:p-8">
+    <div class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="absolute -top-24 left-[8%] h-72 w-72 rounded-full bg-amber-200/14 blur-[120px]"></div>
+      <div class="absolute top-1/3 -right-16 h-80 w-80 rounded-full bg-sky-200/10 blur-[150px]"></div>
+      <div class="absolute top-[42%] -left-32 h-72 w-72 rounded-full bg-white/8 blur-[150px]"></div>
+      <div class="absolute top-[56%] right-[6%] h-64 w-64 rounded-full bg-white/10 blur-[140px]"></div>
+      <div class="absolute top-[72%] left-[12%] h-80 w-80 rounded-full bg-slate-100/7 blur-[170px]"></div>
+      <div class="absolute top-[88%] -right-20 h-72 w-72 rounded-full bg-white/8 blur-[160px]"></div>
+      <div class="absolute top-[108%] left-[22%] h-64 w-64 rounded-full bg-white/7 blur-[145px]"></div>
+      <div class="absolute -bottom-28 left-1/3 h-96 w-96 rounded-full bg-orange-500/10 blur-[170px]"></div>
+      <div class="absolute inset-0 opacity-35 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-size-[120px_120px] mask-[radial-gradient(circle_at_center,black,transparent_78%)]"></div>
+    </div>
 
-        <h1 class="relative z-10 text-4xl font-extrabold tracking-tight drop-shadow-sm md:text-6xl">Christian Mattiolo</h1>
-        <p class="relative z-10 mt-2 text-xl font-medium text-orange-100">Studente / Aspirante Sviluppatore</p>
+    <main class="glass-panel relative z-10 mx-auto w-full max-w-5xl overflow-visible rounded-4xl border border-white/12 bg-white/8 shadow-[0_32px_90px_rgba(2,6,23,0.52)] ring-1 ring-white/10 backdrop-blur-[30px]">
+      <header class="relative z-30 overflow-visible rounded-t-4xl border-b border-white/10 bg-white/[0.07] p-8 pb-24 text-white md:p-12 md:pb-24">
+        <div class="absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-amber-200/70 to-transparent"></div>
+        <div class="pointer-events-none absolute -top-10 -right-12 h-44 w-44 rounded-full bg-amber-100/14 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-16 left-1/4 h-28 w-48 rounded-full bg-sky-100/8 blur-3xl"></div>
 
-        <div class="relative z-10 mt-8 flex flex-wrap items-center gap-3 text-sm font-medium">
+        <p class="relative z-10 text-[11px] font-semibold tracking-[0.34em] text-white/48 uppercase">Curriculum Vitae</p>
+        <h1 class="relative z-10 mt-4 text-4xl font-extrabold tracking-[-0.04em] text-white md:text-6xl">Christian Mattiolo</h1>
+        <p class="relative z-10 mt-4 max-w-2xl text-sm leading-relaxed font-medium text-slate-200/78 md:text-base">
+          Studente di informatica con interesse per sviluppo web, software desktop, produzione musicale e linguaggio visivo.
+        </p>
+
+        <div class="relative z-10 mt-8 flex flex-wrap items-center gap-3 text-sm font-medium text-white/85">
           <a
             href="https://www.google.it/maps/place/47025+Mercato+Saraceno+FC"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/30 hover:shadow-md"
+            class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/12 hover:shadow-[0_10px_30px_rgba(2,6,23,0.22)]"
           >
             <span aria-hidden="true">&#128205;</span>
             <span>Mercato Saraceno</span>
@@ -97,18 +177,20 @@ const profileSections: ProfileSection[] = [
 
           <a
             href="tel:+393923651045"
-            class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/30 hover:shadow-md"
+            class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/12 hover:shadow-[0_10px_30px_rgba(2,6,23,0.22)]"
           >
             <span aria-hidden="true">&#128222;</span>
             <span>+39 3923651045</span>
           </a>
 
-          <div class="group relative inline-block">
+          <div class="group relative z-120 inline-block" data-email-dropdown>
             <button
               type="button"
-              class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/30 hover:shadow-md focus-visible:-translate-y-0.5 focus-visible:bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-500"
+              class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/12 hover:shadow-[0_10px_30px_rgba(2,6,23,0.22)] focus-visible:-translate-y-0.5 focus-visible:bg-white/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/60"
               aria-haspopup="true"
               aria-controls="email-menu"
+              aria-expanded="false"
+              data-email-toggle
             >
               <span aria-hidden="true">&#128231;</span>
               <span>christianmattiolo@email.com &#9662;</span>
@@ -116,12 +198,13 @@ const profileSections: ProfileSection[] = [
 
             <div
               id="email-menu"
-              class="invisible pointer-events-none absolute top-full left-0 z-50 w-56 origin-top-left scale-95 pt-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:visible group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:scale-100 group-focus-within:opacity-100"
+              class="invisible pointer-events-none fixed inset-x-4 bottom-4 z-140 origin-bottom scale-95 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:visible group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:scale-100 group-focus-within:opacity-100 sm:absolute sm:inset-auto sm:top-full sm:left-0 sm:z-140 sm:w-56 sm:origin-top-left sm:pt-3"
+              data-email-menu
             >
-              <div class="flex flex-col gap-1 rounded-2xl border border-white/40 bg-white/90 p-2 shadow-2xl ring-1 ring-black/5 backdrop-blur-2xl">
+              <div class="glass-card flex flex-col gap-1 rounded-3xl border border-white/12 bg-slate-950/78 p-3 text-white shadow-[0_24px_60px_rgba(2,6,23,0.45)] ring-1 ring-white/10 backdrop-blur-2xl sm:rounded-2xl sm:bg-slate-950/55 sm:p-2">
                 <a
                   href="mailto:christianmattiolo@email.com"
-                  class="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-orange-500/10 hover:text-orange-700"
+                  class="flex items-center gap-2 rounded-xl px-3 py-3 text-sm text-slate-100/88 transition-colors hover:bg-white/10 hover:text-white sm:py-2"
                 >
                   &#128241; Apri app predefinita
                 </a>
@@ -130,7 +213,7 @@ const profileSections: ProfileSection[] = [
                   href="https://mail.google.com/mail/?view=cm&fs=1&to=christianmattiolo@email.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-orange-500/10 hover:text-orange-700"
+                  class="flex items-center gap-2 rounded-xl px-3 py-3 text-sm text-slate-100/88 transition-colors hover:bg-white/10 hover:text-white sm:py-2"
                 >
                   &#127760; Apri Gmail
                 </a>
@@ -142,7 +225,7 @@ const profileSections: ProfileSection[] = [
             href="https://github.com/SleepySmiley"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-white/20 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/30 hover:shadow-md"
+            class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/12 hover:shadow-[0_10px_30px_rgba(2,6,23,0.22)]"
           >
             <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -154,48 +237,69 @@ const profileSections: ProfileSection[] = [
         </div>
       </header>
 
-      <div class="flex flex-col md:flex-row">
-        <aside class="w-full border-r border-white/30 bg-white/40 p-8 backdrop-blur-lg md:w-[35%] md:p-10">
-          <h2 class="mb-4 text-xs font-bold tracking-widest text-red-900/60 uppercase">Chi sono</h2>
-          <p class="mb-10 text-base leading-relaxed font-medium text-slate-800">
-            Ho 17 anni, ho una grande passione per l&apos;informatica e i mondi affini a questo. Insieme a questa passione produco
-            anche musica e ho fatto fotografia.
+      <div class="overflow-hidden rounded-b-4xl flex flex-col md:flex-row">
+        <aside class="bg-white/4.5 p-8 backdrop-blur-xl md:w-[35%] md:border-r md:border-white/10 md:p-10 md:rounded-bl-4xl">
+          <h2 class="mb-4 text-[11px] font-bold tracking-[0.28em] text-white/44 uppercase">Profilo</h2>
+          <p class="mb-10 text-base leading-relaxed font-medium text-slate-200/80">
+            Ho 17 anni e una forte passione per l&apos;informatica. Accanto allo sviluppo software coltivo anche produzione musicale e
+            fotografia, due ambiti che mi aiutano a costruire sensibilita tecnica e visiva.
           </p>
 
-          <h2 class="mb-4 text-xs font-bold tracking-widest text-red-900/60 uppercase">Competenze</h2>
+          <h2 class="mb-4 text-[11px] font-bold tracking-[0.28em] text-white/44 uppercase">Competenze</h2>
           <div class="flex flex-wrap gap-2">
-            <span class="rounded-lg border border-white/40 bg-white/50 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm backdrop-blur-md">HTML</span>
-            <span class="rounded-lg border border-white/40 bg-white/50 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm backdrop-blur-md">CSS</span>
-            <span class="rounded-lg border border-white/40 bg-white/50 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm backdrop-blur-md">Tailwind V4</span>
-            <span class="rounded-lg border border-white/40 bg-white/50 px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm backdrop-blur-md">Astro</span>
+            <span class="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-slate-100/88 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">HTML</span>
+            <span class="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-slate-100/88 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">CSS</span>
+            <span class="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-slate-100/88 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">Tailwind</span>
+            <span class="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-slate-100/88 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">Astro</span>
+            <span class="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-slate-100/88 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">C#</span>
+            <span class="rounded-full border border-white/12 bg-white/6 px-3 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-slate-100/88 uppercase shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">WPF</span>
+          </div>
+
+          <div class="mt-12">
+            <h2 class="mb-5 text-[11px] font-bold tracking-[0.28em] text-white/44 uppercase">Timeline</h2>
+            <div class="relative space-y-5 pl-6">
+              <div class="pointer-events-none absolute top-1 bottom-1 left-2.25 w-px bg-linear-to-b from-amber-200/0 via-amber-200/45 to-white/0"></div>
+
+              {lifeTimeline.map((item) => (
+                <article class="relative">
+                  <span class="absolute top-1 -left-6 h-2.75 w-2.75 rounded-full border border-amber-200/50 bg-amber-300 shadow-[0_0_0_5px_rgba(251,191,36,0.08)]"></span>
+                  <p class="text-[11px] font-semibold tracking-[0.2em] text-amber-100/70 uppercase">{item.year}</p>
+                  <h3 class="mt-1 text-sm font-semibold text-white">{item.title}</h3>
+                  <p class="mt-1 text-sm leading-relaxed text-slate-300/72">{item.detail}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </aside>
 
-        <section class="w-full bg-white/60 p-8 backdrop-blur-lg md:w-[65%] md:p-12">
-          <div class="mb-8 flex items-start justify-items-center gap-4">
+        <section class="rounded-b-4xl bg-white/3 p-8 backdrop-blur-xl md:w-[65%] md:rounded-br-4xl md:rounded-bl-none md:p-12">
+          <div class="mb-10 flex items-start gap-4">
             <div>
               <div class="flex items-center gap-3">
-                <span class="h-3.5 w-3.5 rounded-full bg-orange-500 shadow-[0_0_0_6px_rgba(249,115,22,0.14)]"></span>
-                <h2 class="text-2xl font-bold text-slate-900">Percorso</h2>
+                <span class="h-3 w-3 rounded-full bg-amber-300 shadow-[0_0_0_7px_rgba(251,191,36,0.12)]"></span>
+                <h2 class="text-2xl font-bold tracking-tight text-white">Percorso</h2>
               </div>
+              <p class="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300/72">
+                Una selezione di esperienze formative e progetti personali che raccontano il mio percorso tra tecnologia e creativita.
+              </p>
             </div>
           </div>
 
-          <div class="space-y-8">
+          <div class="space-y-10">
             {profileSections.map((section, sectionIndex) => (
-              <article class="border-l-2 border-orange-200/80 pl-5">
-                <h3 class="text-2xl font-bold text-slate-900">{section.title}</h3>
-                <div class="mt-4 space-y-3">
+              <article class="border-l border-white/12 pl-6">
+                <h3 class="text-2xl font-bold tracking-tight text-white">{section.title}</h3>
+                <div class="mt-5 space-y-4">
                   {section.entries.map((entry, entryIndex) => (
-                    <div class="rounded-4xl border border-orange-200/70 bg-white/80 px-5 py-4 shadow-sm backdrop-blur-sm">
+                    <div class="glass-card rounded-[28px] border border-white/12 bg-white/6 px-5 py-5 shadow-[0_18px_40px_rgba(2,6,23,0.24)] backdrop-blur-xl">
                       <div class="flex flex-col items-start gap-3">
-                        <h4 class="text-lg font-bold text-slate-900">{entry.title}</h4>
-                        <p class="text-sm leading-relaxed text-slate-600">{entry.description}</p>
+                        <h4 class="text-lg font-bold tracking-tight text-white">{entry.title}</h4>
+                        <p class="max-w-2xl whitespace-pre-line text-sm leading-relaxed text-slate-300/78">{entry.description}</p>
                         {entry.audioSrc ? (
                           <>
                             <button
                               type="button"
-                              class="inline-flex items-center justify-center gap-2 rounded-full border border-orange-300 bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700 transition-colors hover:bg-orange-200"
+                              class="inline-flex items-center justify-center gap-2 rounded-full border border-amber-200/22 bg-amber-200/10 px-4 py-2 text-sm font-semibold text-amber-100 transition-colors hover:bg-amber-200/16"
                               data-audio-toggle={`audio-${sectionIndex}-${entryIndex}`}
                               data-audio-label={entry.actionLabel}
                               aria-label={entry.actionLabel}
@@ -217,7 +321,7 @@ const profileSections: ProfileSection[] = [
                             href={entry.link ?? '#'}
                             target={entry.link && entry.link !== '#' ? '_blank' : undefined}
                             rel={entry.link && entry.link !== '#' ? 'noopener noreferrer' : undefined}
-                            class="inline-flex items-center justify-center rounded-full border border-orange-300 bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700 transition-colors hover:bg-orange-200"
+                            class="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-semibold text-slate-100 transition-colors hover:bg-white/12"
                           >
                             {entry.linkLabel ?? 'Apri progetto'}
                           </a>
@@ -232,10 +336,44 @@ const profileSections: ProfileSection[] = [
         </section>
       </div>
     </main>
+
     <script is:inline>
       document.addEventListener('click', (event) => {
         const target = event.target;
         if (!(target instanceof Element)) return;
+
+        const emailDropdown = document.querySelector('[data-email-dropdown]');
+        const emailToggle = document.querySelector('[data-email-toggle]');
+        const emailMenu = document.querySelector('[data-email-menu]');
+
+        if (
+          emailDropdown instanceof HTMLElement &&
+          emailToggle instanceof HTMLElement &&
+          emailMenu instanceof HTMLElement
+        ) {
+          const clickedToggle = target.closest('[data-email-toggle]');
+          const clickedInsideMenu = target.closest('[data-email-menu]');
+
+          if (clickedToggle) {
+            const isOpen = emailToggle.getAttribute('aria-expanded') === 'true';
+            emailToggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+            emailMenu.classList.toggle('invisible', isOpen);
+            emailMenu.classList.toggle('pointer-events-none', isOpen);
+            emailMenu.classList.toggle('opacity-0', isOpen);
+            emailMenu.classList.toggle('scale-95', isOpen);
+            emailMenu.classList.toggle('visible', !isOpen);
+            emailMenu.classList.toggle('pointer-events-auto', !isOpen);
+            emailMenu.classList.toggle('opacity-100', !isOpen);
+            emailMenu.classList.toggle('scale-100', !isOpen);
+            return;
+          }
+
+          if (!clickedInsideMenu && !target.closest('[data-email-dropdown]')) {
+            emailToggle.setAttribute('aria-expanded', 'false');
+            emailMenu.classList.add('invisible', 'pointer-events-none', 'opacity-0', 'scale-95');
+            emailMenu.classList.remove('visible', 'pointer-events-auto', 'opacity-100', 'scale-100');
+          }
+        }
 
         const button = target.closest('[data-audio-toggle]');
         if (!(button instanceof HTMLElement)) return;
@@ -286,6 +424,19 @@ const profileSections: ProfileSection[] = [
           if (pauseIcon instanceof SVGElement) pauseIcon.classList.add('hidden');
           if (text) text.textContent = baseLabel;
         };
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+
+        const emailToggle = document.querySelector('[data-email-toggle]');
+        const emailMenu = document.querySelector('[data-email-menu]');
+
+        if (!(emailToggle instanceof HTMLElement) || !(emailMenu instanceof HTMLElement)) return;
+
+        emailToggle.setAttribute('aria-expanded', 'false');
+        emailMenu.classList.add('invisible', 'pointer-events-none', 'opacity-0', 'scale-95');
+        emailMenu.classList.remove('visible', 'pointer-events-auto', 'opacity-100', 'scale-100');
       });
     </script>
   </body>
